@@ -3,11 +3,12 @@ A fork of opensource version of **debugprobe** built on RASPBERRY pico.It is ext
 
 This supports both **JTAG & SWD** for debugging using OpenOCD, Hence the name **JTAGprobe**
 
+This project supports the following boards:
+- **Raspberry Pi Pico** (RP2040)
+- **Raspberry Pi Pico 2** (RP2350)
+
 ___
 The following is **GPIO pinout** for JTAG/SWD 
-
-
-
 
 
 | GPIO       | Pinout  |
@@ -42,16 +43,39 @@ Initialize and update the submodules:
 ```
  git submodule update --init
 ```
-Then create and switch to the build directory:
+
+## Building for Raspberry Pi Pico (RP2040)
+
+Create and switch to the build directory for Pico:
 ```
- mkdir build
- cd build
+mkdir build/pico
+cd build/pico
 ```
+
 If your environment doesn't contain `PICO_SDK_PATH`, then either add it to your environment variables with `export PICO_SDK_PATH=/path/to/sdk` or add `PICO_SDK_PATH=/path/to/sdk` to the arguments to CMake below.
 
 Run cmake and build the code:
 ```
- cmake ..
- make
+cmake ../.. -DPICO_BOARD=pico
+make
 ```
+
+Done! You should now have a `JTAGprobe.uf2` that you can upload to your JTAG Probe via the UF2 bootloader.
+
+## Building for Raspberry Pi Pico 2 (RP2350)
+
+Create and switch to the build directory for Pico 2:
+```
+mkdir build/pico2
+cd build/pico2
+```
+
+If your environment doesn't contain `PICO_SDK_PATH`, then either add it to your environment variables with `export PICO_SDK_PATH=/path/to/sdk` or add `PICO_SDK_PATH=/path/to/sdk` to the arguments to CMake below.
+
+Run cmake and build the code:
+```
+cmake ../.. -DPICO_BOARD=pico2
+make
+```
+
 Done! You should now have a `JTAGprobe.uf2` that you can upload to your JTAG Probe via the UF2 bootloader.
