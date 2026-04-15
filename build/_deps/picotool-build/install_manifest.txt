@@ -1,5 +1,0 @@
-/home/teja/pico/JTAGprobe/build/_deps/picotool/picotool
-/home/teja/pico/JTAGprobe/build/_deps/picotool/picotoolTargets.cmake
-/home/teja/pico/JTAGprobe/build/_deps/picotool/picotoolTargets-release.cmake
-/home/teja/pico/JTAGprobe/build/_deps/picotool/picotoolConfig.cmake
-/home/teja/pico/JTAGprobe/build/_deps/picotool/picotoolConfigVersion.cmake

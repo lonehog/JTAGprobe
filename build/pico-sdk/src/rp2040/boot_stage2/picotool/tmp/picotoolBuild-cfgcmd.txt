@@ -1,1 +1,0 @@
-cmd='/usr/bin/cmake;--no-warn-unused-cli;-DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake;-DPICO_SDK_PATH:FILEPATH=/home/teja/pico/pico-sdk;-DPICOTOOL_NO_LIBUSB=1;-DPICOTOOL_FLAT_INSTALL=1;-DCMAKE_INSTALL_PREFIX=/home/teja/pico/JTAGprobe/build/_deps;-DCMAKE_RULE_MESSAGES=OFF;-DCMAKE_INSTALL_MESSAGE=NEVER;-GUnix Makefiles;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
