@@ -44,38 +44,44 @@ Initialize and update the submodules:
 git submodule update --init --recursive
 ```
 
-## Building for Raspberry Pi Pico (RP2040)
+## Prerequisites
 
-Create and switch to the build directory for Pico:
-```
-mkdir build/pico
-cd build/pico
-```
+Before building, ensure you have the following installed:
 
-If your environment doesn't contain `PICO_SDK_PATH`, then either add it to your environment variables with `export PICO_SDK_PATH=/path/to/sdk` or add `PICO_SDK_PATH=/path/to/sdk` to the arguments to CMake below.
+- **Raspberry Pi Pico SDK** - Set `PICO_SDK_PATH` environment variable
+  ```bash
+  export PICO_SDK_PATH=/path/to/pico-sdk
+  ```
+- **CMake** (3.12 or higher)
+- **GCC ARM Embedded Toolchain**
 
-Run cmake and build the code:
-```
+## Building
+
+### Option 1: Build for Raspberry Pi Pico (RP2040)
+
+```bash
+mkdir -p build/pico && cd build/pico
 cmake ../.. -DPICO_BOARD=pico
 make
 ```
 
-Done! You should now have a `JTAGprobe.uf2` that you can upload to your JTAG Probe via the UF2 bootloader.
+The output will be `build/pico/JTAGprobe.uf2`
 
-## Building for Raspberry Pi Pico 2 (RP2350)
+### Option 2: Build for Raspberry Pi Pico 2 (RP2350)
 
-Create and switch to the build directory for Pico 2:
-```
-mkdir build/pico2
-cd build/pico2
-```
-
-If your environment doesn't contain `PICO_SDK_PATH`, then either add it to your environment variables with `export PICO_SDK_PATH=/path/to/sdk` or add `PICO_SDK_PATH=/path/to/sdk` to the arguments to CMake below.
-
-Run cmake and build the code:
-```
+```bash
+mkdir -p build/pico2 && cd build/pico2
 cmake ../.. -DPICO_BOARD=pico2
 make
 ```
 
-Done! You should now have a `JTAGprobe.uf2` that you can upload to your JTAG Probe via the UF2 bootloader.
+The output will be `build/pico2/JTAGprobe.uf2`
+
+## Flashing the Firmware
+
+1. **Hold the BOOTSEL button** on your Pico/Pico2
+2. **Connect to USB** while holding BOOTSEL (the device will appear as RPI-RP2 drive)
+3. **Copy the appropriate `.uf2` file** to the drive:
+   - For Pico (RP2040): `build/pico/JTAGprobe.uf2`
+   - For Pico 2 (RP2350): `build/pico2/JTAGprobe.uf2`
+4. The device will automatically reboot and run the firmware
