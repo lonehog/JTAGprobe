@@ -41,7 +41,7 @@ cd JTAGprobe
 ```
 Initialize and update the submodules:
 ```
- git submodule update --init
+git submodule update --init --recursive
 ```
 
 ## Building for Raspberry Pi Pico (RP2040)

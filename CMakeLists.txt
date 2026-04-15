@@ -26,14 +26,15 @@ add_executable(JTAGprobe
 
 target_sources(JTAGprobe PRIVATE
         
-        #CMSIS_5/CMSIS/DAP/Firmware/Source/DAP_vendor.c
-        #CMSIS_5/CMSIS/DAP/Firmware/Source/SWO.c
-        #CMSIS_5/CMSIS/DAP/Firmware/Source/SW_DP.c
+        #CMSIS_6/CMSIS/DAP/Firmware/Source/DAP_vendor.c
+        #CMSIS_6/CMSIS/DAP/Firmware/Source/SWO.c
+        #CMSIS_6/CMSIS/DAP/Firmware/Source/SW_DP.c
         )
 
 target_include_directories(JTAGprobe PRIVATE
 
-        CMSIS_5/CMSIS/Core/Include/
+        CMSIS_6/CMSIS/Core/Include/
+        CMSIS_6/CMSIS/RTOS2/Include/
         include/
         )
 
